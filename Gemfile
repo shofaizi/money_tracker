@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "font-awesome-rails"
 gem 'cancancan'
 gem 'simple_form'
+gem 'money-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
