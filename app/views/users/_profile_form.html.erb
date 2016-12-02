@@ -1,0 +1,8 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name, input_html: { value: "" } %>
+  <%= f.input :last_name, input_html: { value: "" } %>
+  <%= f.input :email, input_html: { value: ""} %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.submit class: 'btn btn-primary'%>
+<% end %>
