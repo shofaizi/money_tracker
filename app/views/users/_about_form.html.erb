@@ -1,16 +1,8 @@
 <h1>Contact Us</h1>
-<%= form_tag contact_submit_path do %>
+<%= simple_form_for @user do |f| %>
   <div>
-    <%= label_tag :full_name %>
-    <%= text_field_tag :full_name %>
+    <%= f.input :subject, input_html: { value: "" } %>
+    <%= f.text_area :message, input_html: { value: "" } %>
   </div>
-  <div>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
-  </div>
-  <div>
-    <%= label_tag :message %>
-    <%= text_area_tag(:message, nil, {class: 'abc'}) %>
-  </div>
-  <%= submit_tag "Contact Us!" %>
+    <%= f.submit class: 'btn btn-secondary'%>
 <% end %>
