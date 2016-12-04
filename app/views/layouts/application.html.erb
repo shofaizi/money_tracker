@@ -14,9 +14,9 @@
         <li><%= link_to 'Main Page', root_path %></li>
         <li><%= link_to 'My Budget', budgets_path %></li>
         <li><%= link_to 'Spendings', spendings_path %></li>
-        <% if current_user.present? %>
-          <li><%= link_to 'Overview',  user_transactions_path(current_user) %></li>
-          <li><%= link_to 'Transactions', user_transactions_path(current_user) %></li>
+          <li><%= link_to 'Overview',  overview_path %></li>
+          <li><%= link_to 'Transactions', transactions_path %></li>
+          <% if current_user.present? %>
           <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
         <% end %>
       </ul>

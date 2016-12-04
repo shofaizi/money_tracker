@@ -1,1 +1,12 @@
-<h1>All transactions<h1/>
+  <% @transaction.each do |t| %>
+    <div>
+      <div>
+        <h4><%= t.transaction_date %></h4>
+      </div>
+      <div>
+        <h6><%= t.transaction_type %></h6>
+        <span>$<%= t.amount_cents.to_f/ 100 %></span>
+        <hr>
+      </div>
+    </div>
+  <% end %>

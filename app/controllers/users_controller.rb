@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def new
     @user = User.new
   end
@@ -21,7 +22,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     if @user.update user_params
-      render :edit , notice: "Profile updated!"
+      flash[:notice] = "Profile updated!"
+      render :edit
     end
   end
 

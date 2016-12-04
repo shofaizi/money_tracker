@@ -1,0 +1,6 @@
+<div>
+  <%= simple_form_for @transaction do |s| %>
+  <%= s.input :amount_cents, placeholder: "$0.00" %>
+  <%= s.input :description, placeholder: "Note" %>
+  <% end %>
+</div>
