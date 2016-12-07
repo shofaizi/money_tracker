@@ -1,5 +1,7 @@
 <h1>Welcome to Money Saver</h1>
+<p class="navbar-text">Hello <%= current_user.first_name.capitalize %></p>
 
+<canvas id="barchart"></canvas>
 <div>
   <%= button_to "+", new_credit_path, method: :get %>
 </div>
