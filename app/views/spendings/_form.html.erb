@@ -1,9 +1,0 @@
-<%= simple_form_for @spending, url: spendings_path, method: :post do |f| %>
-
-<div>
-  <%= f.input :description, placeholder: 'Description' %>
-  <%= f.input :amount_cents, placeholder: '$0.00' %>
-  <%= f.input :transaction_date, as: :date %>
-  <%= f.submit class: 'btn btn-secondary'%>
-  <% end %>
-</div>
