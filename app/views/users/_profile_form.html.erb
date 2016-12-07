@@ -1,9 +1,29 @@
 <%= @user.errors.full_messages.join(', ') %>
-<%= simple_form_for @user do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.submit class: 'btn btn-primary'%>
+
+<%= form_for @user, :html => {:class => "form-horizontal center"} do |f| %>
+<div class="form-group form-group-lg">
+  <%= f.label :first_name, class: "col-sm-4" %>
+  <%= f.text_field :first_name, class: "col-sm-6" %>
+</div>
+
+<div class="form-group form-group-lg" style="clear: left">
+  <%= f.label :last_name, class: "col-sm-4" %>
+  <%= f.text_field :last_name, class: "col-sm-6" %>
+</div>
+
+<div class="form-group form-group-lg" style="clear: left">
+  <%= f.label :email, class: "col-sm-4" %>
+  <%= f.email_field :email, class: "col-sm-6" %>
+</div>
+
+<div class="form-group form-group-lg" style="clear: left">
+  <%= f.label :password, class: "col-sm-4" %>
+  <%= f.password_field :password, class: "col-sm-6" %>
+</div>
+
+<div class="form-group form-group-lg" style="clear: left">
+  <%= f.label :password_confirmation, class: "col-sm-4" %>
+  <%= f.password_field :password_confirmation, class: "col-sm-6" %>
+</div>
+<%= submit_tag 'Update User', class:'btn btn-success' %>
 <% end %>

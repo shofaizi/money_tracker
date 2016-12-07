@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  resources :home, only: [:new, :create, :destroy]
   post 'contact_submit' => 'users#contact_submit'
 
 
@@ -11,13 +10,11 @@ Rails.application.routes.draw do
 
   resources :budgets
   resources :users, only: [:new, :create, :update, :edit]
-  resources :spendings
-  resources :transactions, only: [:show, :index]
+  resources :transactions
   get '/overview' => 'transactions#overview', as: :overview
-
+  get '/new_credit' => 'transactions#new_credit', as: :new_credit
+  get '/new_debit' => 'transactions#new_debit', as: :new_debit
+  get '/spending_index' => 'transactions#spending_index', as: :spending_index
 
 
 end
-
-
-# index create new edit update

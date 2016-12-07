@@ -1,0 +1,10 @@
+<%= @transaction.errors.full_messages %>
+<div>
+  <%= simple_form_for @transaction do |s| %>
+  <%= s.input :is_spending, input_html: { checked: false, value: false}, as: :hidden %>
+  <%= s.input :transaction_type, label: "Category", collection: ["Investment", "Income"], selected: "Income", as: :select%>
+  <%= s.input :amount_cents, placeholder: "$0.00" %>
+  <%= s.input :description, placeholder: "Note" %>
+  <%= s.submit input_html: {class: 'btn btn-primary'} %>
+  <% end %>
+</div>

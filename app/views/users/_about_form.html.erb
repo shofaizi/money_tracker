@@ -1,8 +1,15 @@
 <h1>Contact Us</h1>
-<%= simple_form_for @user do |f| %>
-  <div>
-    <%= f.input :subject, input_html: { value: "" } %>
-    <%= f.text_area :message, input_html: { value: "" } %>
+<%= form_for @user,:html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group form-group-lg">
+    <%= f.label :subject, class:"col-sm-4" %>
+    <%= f.text_field :subject, class: "col-sm-6" %>
   </div>
-    <%= f.submit class: 'btn btn-secondary'%>
+  <div class="form-group form-group-lg" style="clear:left">
+    <%= f.label :message, class:"col-sm-4" %>
+    <%= f.text_area :message, class: "col-sm-6" %>
+  </div>
+  <div>
+    <div class="col-sm-4"></div>
+    <%= f.submit class: 'btn btn-success col-sm-3', value: "Contact"%>
+  </div>
 <% end %>
