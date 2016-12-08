@@ -27,6 +27,13 @@
         </div>
 
         <div class="col-md-8 col-sm-8">
+          <div>
+            <% if notice || alert %>
+              <div class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable" role="alert">
+                <%= notice || alert %>
+              </div>
+            <% end %>
+          </div>
           <ul class='nav navbar-nav navbar-right'>
           <% if user_signed_in? %>
             <li><%= button_to 'Sign out', sessions_path, method: :delete, class: 'btn btn-default navbar-btn' %></li>
@@ -37,11 +44,6 @@
           </ul>
           <%= yield %>
         </div>
-        <div>
-        <% if notice || alert %>
-          <div class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable" role="alert"></div>
-          <%= notice || alert %>
-        <% end %>
       </div>
     </div>
 
