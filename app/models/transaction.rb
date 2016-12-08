@@ -3,6 +3,7 @@ class Transaction < ApplicationRecord
   # before_save :set_transaction_type
 
   belongs_to :user
+  has_and_belongs_to_many :budgets
 
   validates :transaction_type, presence: true
   validates :amount_cents, presence: true, numericality: true

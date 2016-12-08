@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
-  resource :budgets
+  resources :budgets
   resources :users, only: [:new, :create, :update, :edit]
   resources :transactions
   get '/overview' => 'transactions#overview', as: :overview

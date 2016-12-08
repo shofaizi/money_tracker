@@ -1,12 +1,32 @@
-  <% @transactions.each do |t| %>
-    <div>
-      <div>
-        <h4><%= t.transaction_date %></h4>
-      </div>
-      <div>
-        <h6><%= t.transaction_type %></h6>
-        <span>$<%= t.amount_cents.to_f/ 100 %></span>
-        <hr>
-      </div>
-    </div>
-  <% end %>
+<h1>Transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Description</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.order("transaction_date ASC").each do |t| %>
+      <tr>
+        <td><%= t.transaction_date %></td>
+        <td><%= t.transaction_type %></td>
+        <td>$<%= t.amount_cents.to_f/ 100 %></td>
+        <td><%= t.description %></td>
+        <td>
+          <em>Budgets: </em>
+          <% if t.budgets.empty? %>
+            none
+          <% else %>
+            <%= t.budgets.map(&:name).join(",") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

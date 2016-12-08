@@ -65,6 +65,7 @@ class TransactionsController < ApplicationController
                                         :transaction_type,
                                         :transaction_date,
                                         :description,
-                                        :is_spending)
+                                        :is_spending,
+                                        :budget_ids => [])
   end
 end
