@@ -1,1 +1,35 @@
-<h1>Show specific budget<h1/>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @budget.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @budget.description %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @budget.period %>
+</p>
+
+<p>
+  <strong>Goal Amount:</strong>
+  <%= humanized_money_with_symbol(@budget.goal_amount) %>
+</p>
+
+<p>
+  <strong>Current Amount:</strong>
+  $<%= @budget.current_amount_cents.to_f/ 100 %>
+</p>
+
+
+<h2>
+  You are currently at <%= number_to_percentage(@budget.current_percentage, precision: 2) %> of your <%= @budget.period %> budget
+</h2>
+
+
+<%= link_to 'Edit', edit_budget_path(@budget) %> |
+<%= link_to 'Back', budgets_path %>

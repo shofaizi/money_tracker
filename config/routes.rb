@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'balance/index'
+
   root 'home#index'
   post 'contact_submit' => 'users#contact_submit'
 
@@ -8,7 +10,8 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
-  resource :budgets
+  resources :balances, only: [:index]
+  resources :budgets
   resources :users, only: [:new, :create, :update, :edit]
   resources :transactions
   get '/overview' => 'transactions#overview', as: :overview

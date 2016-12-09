@@ -5,7 +5,7 @@ class User < ApplicationRecord
   attr_accessor :subject
   attr_accessor :message
 
-  has_one :budget, dependent: :destroy
+  has_many :budgets, dependent: :destroy
   has_many :transactions, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

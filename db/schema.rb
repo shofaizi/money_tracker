@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207185150) do
+ActiveRecord::Schema.define(version: 20161208015140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "budgets", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "period"
     t.integer  "goal_amount_cents"
     t.integer  "user_id"
     t.datetime "created_at",        null: false
@@ -23,14 +26,11 @@ ActiveRecord::Schema.define(version: 20161207185150) do
     t.index ["user_id"], name: "index_budgets_on_user_id", using: :btree
   end
 
-  create_table "entries", force: :cascade do |t|
-    t.string   "type"
-    t.date     "period"
-    t.integer  "amount_cents"
-    t.integer  "budget_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["budget_id"], name: "index_entries_on_budget_id", using: :btree
+  create_table "budgets_transactions", id: false, force: :cascade do |t|
+    t.integer "budget_id"
+    t.integer "transaction_id"
+    t.index ["budget_id"], name: "index_budgets_transactions_on_budget_id", using: :btree
+    t.index ["transaction_id"], name: "index_budgets_transactions_on_transaction_id", using: :btree
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -56,6 +56,5 @@ ActiveRecord::Schema.define(version: 20161207185150) do
   end
 
   add_foreign_key "budgets", "users"
-  add_foreign_key "entries", "budgets"
   add_foreign_key "transactions", "users"
 end

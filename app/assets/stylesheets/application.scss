@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "home";
+@import "budgets";
 
 .navbar li  {
     display: block;
@@ -11,6 +12,16 @@
     text-decoration: none;
     color: #fff;
     background: rgba(200,210,201,0.2);
+}
+
+#status {
+  float: right;
+  margin-top: 1em;
+}
+
+#contents {
+  clear: left;
+  margin-top: 5em;
 }
 
 // .navbar {
