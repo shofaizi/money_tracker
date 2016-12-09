@@ -1,7 +1,10 @@
-<h1>Welcome to Money Saver</h1>
-<p class="navbar-text">Hello <%= current_user.first_name.capitalize %></p>
-
-<canvas id="barchart"></canvas>
+<h1>Welcome to <span><em>BudgetBuddy</em></span></h1>
+<div>
+  <p class="navbar-text">Hello <%= current_user.first_name.capitalize %></p>
+</div>
+<div>
+  <canvas id="barchart"></canvas>
+</div>
 <div>
   <%= button_to "+", new_credit_path, method: :get %>
 </div>
@@ -9,3 +12,9 @@
 <div>
   <%= button_to "-", new_debit_path, method: :get %>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $.get("<%= balances_path %>")
+  })
+</script>

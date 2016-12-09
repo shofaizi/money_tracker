@@ -26,6 +26,7 @@
             <%= t.budgets.map(&:name).join(",") %>
           <% end %>
         </td>
+        <td><%= link_to 'Remove', t, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

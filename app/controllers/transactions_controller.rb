@@ -26,11 +26,16 @@ class TransactionsController < ApplicationController
     @user = current_user
     @transaction = Transaction.new transaction_params
     @transaction.user = current_user
-    if @transaction.save
-      redirect_to transactions_path, notice: "Created new Spendings"
-    else
-      error_path = @transaction.is_spending ? :new_debit : :new_credit
-      render error_path
+    respond_to do |format|
+      if @transaction.save
+        format.html { redirect_to root_path, notice: "Created new Spendings" }
+        format.json { render json: { result: 'ok' }, status: :created, location: @transaction }
+      else
+        format.html { render(@transaction.is_spending ? :new_debit : :new_credit) }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        # error_path = @transaction.is_spending ? :new_debit : :new_credit
+        # render error_path
+      end
     end
   end
 
@@ -41,9 +46,17 @@ class TransactionsController < ApplicationController
   def update
     @transaction = Transaction.find params[:id]
     @transaction.user = current_user
-    if @transaction.user.update transaction_params
-      flash[:notice] = "Updated"
-      render :edit
+
+    respond_to do |format|
+      if @transaction.user.update transaction_params
+        format.html { redirect_to @transaction, notice: "Transaction updated" }
+        format.json { render :show, status: :ok, location: @transaction }
+        # flash[:notice] = "Updated"
+        # render :edit
+      else
+        format.html { render :edit }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -54,8 +67,13 @@ class TransactionsController < ApplicationController
   def destroy
     transaction = Transaction.find params[:id]
     transaction.destroy
-    flash[:notice]= 'Transaction deleted'
-    redirect_to transactions_path
+
+    respond_to do |format|
+      format.html { redirect_to transactions_url, notice: "Transaction deleted" }
+      format.json { head :no_content}
+    # flash[:notice]= 'Transaction deleted'
+    # redirect_to transactions_path
+    end
   end
 
   private

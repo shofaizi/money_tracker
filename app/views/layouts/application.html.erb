@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>MoneyProject</title>
+    <%# include_gon %>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application'%>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
@@ -34,15 +35,21 @@
               </div>
             <% end %>
           </div>
-          <ul class='nav navbar-nav navbar-right'>
-          <% if user_signed_in? %>
-            <li><%= button_to 'Sign out', sessions_path, method: :delete, class: 'btn btn-default navbar-btn' %></li>
-          <% else %>
-            <li><%= link_to 'Sign up', new_user_path %></li>
-            <li><%= link_to 'Sign In', new_session_path %></li>
-          <% end %>
-          </ul>
-          <%= yield %>
+
+          <div>
+            <ul id="status" class='nav navbar-nav'>
+            <% if user_signed_in? %>
+              <li><%= button_to 'Sign out', sessions_path, method: :delete, class: 'btn btn-default navbar-btn' %></li>
+            <% else %>
+              <li><%= link_to 'Sign up', new_user_path %></li>
+              <li><%= link_to 'Sign In', new_session_path %></li>
+            <% end %>
+            </ul>
+          </div>
+
+          <div id="contents">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>

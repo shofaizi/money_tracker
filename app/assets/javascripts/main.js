@@ -1,12 +1,12 @@
-$(document).ready(function() {
+var balanceChart = function(name, data, labels) {
   var chart = document.getElementById("barchart").getContext('2d');
   let barchart = new Chart(chart, {
     type: 'bar',
     data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: labels,
       datasets: [
           {
-              label: "Overview",
+              label: name,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -24,9 +24,19 @@ $(document).ready(function() {
                   'rgba(255, 159, 74, 1)'
               ],
               borderWidth: 1,
-              data: [65, 59, 80, 81, 56, 55, 67]
-          }
+              data: data
+            }
       ]
+
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+              beginAtZero:true
+          }
+        }]
+      }
     }
   });
-});
+};
