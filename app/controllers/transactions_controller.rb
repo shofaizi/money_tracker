@@ -6,25 +6,52 @@ class TransactionsController < ApplicationController
   end
 
   def overview
-    @date_end = Date.today.end_of_month
+    @date_end       = Date.today.end_of_month
     @date_beginning = Date.today.beginning_of_month
-    @transactions = Transaction.all.where(user: current_user).where(transaction_date: Date.today-30..Date.today)
+    @transactions   = Transaction.all.where(user: current_user).where(transaction_date: Date.today-30..Date.today)
   end
 
   def overview_ajax
     expenses = 0
-    income = 0
-    date_beginning = DateTime.parse(params[:begin])
+    income   = 0
+
+    date     =
+      if params[:begin].present?
+        params[:begin]
+      elsif params[:end].present?
+        params[:end]
+      end
+      
+    date_beginning = DateTime.parse(date).to_date
+
+    if params[:begin].present?
+      date_beginning = DateTime.parse(date).to_date
+      date_start = (date_beginning - 30).strftime('%Y-%-m-%-d')
+      date_end   = date_beginning.strftime('%Y-%-m-%-d')
+    elsif params[:end].present?
+      date_beginning = DateTime.parse(date).to_date
+      date_start = date_beginning.strftime('%Y-%-m-%-d')
+      date_end   = (date_beginning + 30).strftime('%Y-%-m-%-d')
+    end
+
+    # date_end = date_beginning.strftime('%Y-%-m-%-d')
     @transactions = Transaction.all.where(user: current_user).where(transaction_date: date_beginning-30..date_beginning)
     @transactions.each do |txn|
       if txn.is_spending?
         expenses += txn.amount_cents
       else
-        income += txn.amount_cents
+        income   += txn.amount_cents
       end
     end
     budget_left = income - expenses
-    data = {transactions: @transactions, expenses: expenses/100, income: income/100, budget_left: budget_left/100}
+    data = {
+      transactions: @transactions,
+      expenses: expenses/100,
+      income: income/100,
+      budget_left: budget_left/100,
+      date_start: date_start,
+      date_end: date_end
+    }
     render json: (data)
   end
 
