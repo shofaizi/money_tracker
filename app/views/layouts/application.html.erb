@@ -12,22 +12,22 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-4 col-sm-4">
+        <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3 col-xl-2" id='navbar'>
           <div class='navbar'>
             <ul>
-              <li><%= link_to 'Main Page', root_path %></li>
-              <li><%= link_to 'My Budget', budgets_path %></li>
-              <li><%= link_to 'Spendings', spending_index_path %></li>
-              <li><%= link_to 'Overview',  overview_path %></li>
-              <li><%= link_to 'Transactions', transactions_path %></li>
+              <li><%= link_to 'Main Page', root_path %></li><hr />
+              <li><%= link_to 'My Budget', budgets_path %></li><hr />
+              <li><%= link_to 'Spendings', spending_index_path %></li><hr />
+              <li><%= link_to 'Overview',  overview_path %></li><hr />
+              <li><%= link_to 'Transactions', transactions_path %></li><hr />
               <% if current_user.present? %>
-                <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
+                <li><%= link_to 'Settings', edit_user_path(current_user) %></li><hr />
               <% end %>
             </ul>
           </div>
         </div>
 
-        <div class="col-md-8 col-sm-8">
+        <div class="col-md-9 col-xl-10 col-sm-8 col-lg-9" id="container">
           <div>
             <% if notice || alert %>
               <div class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable" role="alert">

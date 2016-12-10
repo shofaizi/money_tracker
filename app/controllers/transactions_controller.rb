@@ -6,7 +6,26 @@ class TransactionsController < ApplicationController
   end
 
   def overview
-    @transaction = Transaction.all.where(user: current_user)
+    @date_end = Date.today.end_of_month
+    @date_beginning = Date.today.beginning_of_month
+    @transactions = Transaction.all.where(user: current_user).where(transaction_date: Date.today-30..Date.today)
+  end
+
+  def overview_ajax
+    expenses = 0
+    income = 0
+    date_beginning = DateTime.parse(params[:begin])
+    @transactions = Transaction.all.where(user: current_user).where(transaction_date: date_beginning-30..date_beginning)
+    @transactions.each do |txn|
+      if txn.is_spending?
+        expenses += txn.amount_cents
+      else
+        income += txn.amount_cents
+      end
+    end
+    budget_left = income - expenses
+    data = {transactions: @transactions, expenses: expenses/100, income: income/100, budget_left: budget_left/100}
+    render json: (data)
   end
 
   def new_spending

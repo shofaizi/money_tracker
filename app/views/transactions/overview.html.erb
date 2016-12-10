@@ -1,19 +1,28 @@
-<div><%= @transaction.transaction_date %></div>
+<div><% @transactions %></div>
+
+<!-- <i class="fa fa-arrow-circle-left-2x" aria-hidden="true"></i> -->
+<span class='button-left'><%= fa_icon "arrow-circle-left 2x" %></span>
+  <span class='date-header'><%= @date_beginning %> - <%= @date_end %></span>
+<span class='button-right'><%= fa_icon "arrow-circle-right 2x" %></span>
+
 <div>
-  <h4>Income<%=  %></h4>
-  <h4>Fixed<%=  %></h4>
-  <h4>Variable<%=  %></h4>
+  <h5>Income</h5>
+  $<span id="income"></span>
+</div>
+<hr>
+
+<div>
+  <h5>Expenses</h5>
+  $<span id='expenses'></span>
+</div>
+
+<hr>
+</hr>
+
+<div>
+  <h5>Budget left</h5>
+  $<span id='budget-left'></span>
 </div>
 <div>
-  <h4>Expenses<%=  %></h4>
-  <h4>Fixed<%=  %></h4>
-  <h4>Variable<%=  %></h4>
-  <h4>Big Expenses<%=  %></h4>
-  <h4>Savings<%=  %></h4>
-  <hr>
-  <h4>Budget left<%=  %></h4>
-</div>
-<div>
-  <h4>Projected Savings</h4>
-  <h2>$206,533.10<h2>
+
 </div>

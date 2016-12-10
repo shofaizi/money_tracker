@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap'
 gem 'chart-js-rails'
 gem 'momentjs-rails', '~> 2.11'
+gem 'tachyons-rails'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

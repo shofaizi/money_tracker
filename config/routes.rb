@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/new_credit' => 'transactions#new_credit', as: :new_credit
   get '/new_debit' => 'transactions#new_debit', as: :new_debit
   get '/spending_index' => 'transactions#spending_index', as: :spending_index
+  get '/overview/ajax' => 'transactions#overview_ajax'
 
 
 end
