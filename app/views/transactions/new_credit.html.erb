@@ -2,7 +2,7 @@
   <%# @transaction.errors.full_messages %>
 <%# end %>
 
-<div>
+<div class='new-credit'>
   <%= simple_form_for @transaction do |s| %>
   <%= s.input :is_spending, input_html: { checked: false, value: false}, as: :hidden %>
   <%= s.input :transaction_type, label: "Category", collection: ["Investment", "Income"], selected: "Income", as: :select%>

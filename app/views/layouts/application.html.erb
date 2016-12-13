@@ -15,13 +15,13 @@
         <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3 col-xl-2" id='navbar'>
           <div class='navbar'>
             <ul>
-              <li><%= link_to 'Main Page', root_path %></li><hr />
-              <li><%= link_to 'My Budget', budgets_path %></li><hr />
-              <li><%= link_to 'Spendings', spending_index_path %></li><hr />
-              <li><%= link_to 'Overview',  overview_path %></li><hr />
-              <li><%= link_to 'Transactions', transactions_path %></li><hr />
+              <div><li><%= link_to 'Main Page', root_path %></li><hr /></div>
+              <div><li><%= link_to 'My Budget', budgets_path %></li><hr /></div>
+              <div><li><%= link_to 'Spendings', spending_index_path %></li><hr /></div>
+              <div><li><%= link_to 'Overview',  overview_path %></li><hr /></div>
+              <div><li><%= link_to 'Transactions', transactions_path %></li><hr /></div>
               <% if current_user.present? %>
-                <li><%= link_to 'Settings', edit_user_path(current_user) %></li><hr />
+                <div><li><%= link_to 'Settings', edit_user_path(current_user) %></li><hr /></div>
               <% end %>
             </ul>
           </div>

@@ -1,16 +1,19 @@
 <h1>Welcome to <span><em>BudgetBuddy</em></span></h1>
+
+<div class='buttons'>
+  <div class='button' style="">
+    <%= button_to "+", new_credit_path, class:'btn btn-outline-success', method: :get %>
+  </div>
+  <div class='button'>
+    <%= button_to "-", new_debit_path, class:"btn btn-danger", method: :get %>
+  </div>
+</div>
+
 <div>
   <p class="navbar-text">Hello <%= current_user.first_name.capitalize %></p>
 </div>
 <div>
   <canvas id="barchart"></canvas>
-</div>
-<div>
-  <%= button_to "+", new_credit_path, method: :get %>
-</div>
-
-<div>
-  <%= button_to "-", new_debit_path, method: :get %>
 </div>
 
 <script>
