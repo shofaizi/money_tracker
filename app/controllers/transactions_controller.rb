@@ -96,8 +96,6 @@ class TransactionsController < ApplicationController
       if @transaction.user.update transaction_params
         format.html { redirect_to @transaction, notice: "Transaction updated" }
         format.json { render :show, status: :ok, location: @transaction }
-        # flash[:notice] = "Updated"
-        # render :edit
       else
         format.html { render :edit }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -112,10 +110,8 @@ class TransactionsController < ApplicationController
   def destroy
     transaction = Transaction.find params[:id]
     transaction.destroy
-
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: "Transaction deleted" }
-      format.json { head :no_content}
+      format.js { render :delete_success }
     end
   end
 

@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    # gon.transaction = Transaction
   end
 
   def new

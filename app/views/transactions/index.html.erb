@@ -26,8 +26,7 @@
             <%= t.budgets.map(&:name).join(",") %>
           <% end %>
         </td>
-        <td><%= link_to '', t, class: "fa fa-trash-o trash", 'aria-hidden': 'true', method: :delete %></td>
-        <!-- <i class="fa fa-trash-o" aria-hidden="true"></i> -->
+        <td><%= link_to '', t, class: "fa fa-trash-o trash", 'aria-hidden': 'true', method: :delete, remote: true %></td>
       </tr>
     <% end %>
   </tbody>

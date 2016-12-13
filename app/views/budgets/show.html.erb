@@ -2,8 +2,6 @@
   You are currently at <%= number_to_percentage(@budget.current_percentage, precision: 2) %> of your <%= @budget.period %> budget
 </h2>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @budget.name %>
@@ -26,7 +24,7 @@
 
 <p>
   <strong>Current Amount:</strong>
-  $<%= @budget.current_amount_cents.to_f/ 100 %>
+  $<%= @budget.current_amount_cents.to_f/100 %>
 </p>
 
 
