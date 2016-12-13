@@ -7,8 +7,6 @@ $(document).ready(function(){
       response_data = data
       $("#income").html(data.income);
       $("#expenses").html(data.expenses);
-      $("#start").html(data.start);
-      $("#end").html(data.end);
       $("#budget-left").html(data.budget_left);
       $(".date-header").html(data.date_beginning + ' - ' + data.date_end);
     })
@@ -17,21 +15,20 @@ $(document).ready(function(){
   getInitialData()
 
   $('.button-left').click(function(){
-    if(response_data !== undefined) {
-      var begin_date = response_data.date_start
-    } else {
+
+    // if(response_data !== undefined) {
+    //   var begin_date = response_data.date_start
+    // } else {
       var begin_date = new Date()
-    }
+    // }
     console.log(begin_date)
     $.get('http://localhost:3000/overview/ajax?begin=' + begin_date, function(data){
       console.log(data);
       response_data = data
       $("#income").html(data.income);
       $("#expenses").html(data.expenses);
-      $("#start").html(data.start);
-      $("#end").html(data.end);
       $("#budget-left").html(data.budget_left);
-      $(".date-header").html(data.date_start + ' - ' + data.date_end);
+      $(".date-header").html(data.date_beginning + ' - ' + data.date_end);
     })
   });
 
@@ -49,7 +46,7 @@ $(document).ready(function(){
       $("#start").html(data.start);
       $("#end").html(data.end);
       $("#budget-left").html(data.budget_left);
-      $(".date-header").html(data.date_start + ' - ' + data.date_end);
+      $(".date-header").html(data.date_beginning + ' - ' + data.date_end);
     })
   });
 });

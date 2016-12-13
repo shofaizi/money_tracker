@@ -21,9 +21,8 @@ class TransactionsController < ApplicationController
       elsif params[:end].present?
         params[:end]
       end
-      
-    date_beginning = DateTime.parse(date).to_date
 
+    date_beginning = DateTime.parse(date).to_date
     if params[:begin].present?
       date_beginning = DateTime.parse(date).to_date
       date_start = (date_beginning - 30).strftime('%Y-%-m-%-d')
@@ -49,7 +48,7 @@ class TransactionsController < ApplicationController
       expenses: expenses/100,
       income: income/100,
       budget_left: budget_left/100,
-      date_start: date_start,
+      date_beginning: date_start,
       date_end: date_end
     }
     render json: (data)

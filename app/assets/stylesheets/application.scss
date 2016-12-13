@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "home";
+@import 'sessions';
 @import "budgets";
 @import "font-awesome";
 
@@ -57,3 +58,63 @@
 //     padding: 0;
 //     list-style: none;
 // }
+
+.connect-twitter{
+  margin-top: 1rem;
+  background-color: #1b95e0;
+  color: white;
+  border-radius: 10px;
+  padding-left: 3rem;
+}
+
+.connect-twitter a {
+  color:white;
+  padding-right: auto;
+}
+.text{
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  color: #1b95e0;
+}
+.text:hover {
+  background-color: #1b95e0;
+}
+#login-display{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+#login-display .login-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.login-form {
+  border-radius: 50px;
+  height: 600px;
+  width: 500px;
+  background-color: white;
+}
+#signup-form{
+  padding-top: 3rem;
+  // padding-right: 2.5rem;
+  display:none;
+}
+#signin-form{
+  padding-top: 3rem;
+}
+.signup-label{
+  margin: 0;
+}
+
+.already-user{
+  font-weight: bold;
+  margin-top: 1rem;
+}

@@ -2,7 +2,10 @@
 
 <!-- <i class="fa fa-arrow-circle-left-2x" aria-hidden="true"></i> -->
 <span class='button-left'><%= fa_icon "arrow-circle-left 2x" %></span>
-  <span class='date-header'><%= @date_beginning %> - <%= @date_end %></span>
+  <span class='date-header'>
+    <span id='begin'><%= @date_beginning %></span>
+    - <span id='end'><%= @date_end %></span>
+    </span>
 <span class='button-right'><%= fa_icon "arrow-circle-right 2x" %></span>
 
 <div>

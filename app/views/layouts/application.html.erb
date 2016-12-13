@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <% if user_signed_in? == false %>
+      <div id="login-display">
+        <div class='login-content'>
+          <div class='login-form'>
+            <div id='signin-form'>
+              <%= render 'sessions/new' %>
+            </div>
+            <div id='signup-form'>
+              <%= render 'users/new' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3 col-xl-2" id='navbar'>
@@ -41,9 +55,9 @@
             <% if user_signed_in? %>
               <li><%= button_to 'Sign out', sessions_path, method: :delete, class: 'btn btn-default navbar-btn' %></li>
             <% else %>
-              <li><%= link_to 'Sign up', new_user_path %></li>
-              <li><%= link_to 'Sign In', new_session_path %></li>
-              <li><%= link_to "Sign in with Twitter", sign_in_with_twitter_path %></li>
+              <!-- <li><%# link_to 'Sign up', new_user_path %></li> -->
+              <!-- <li><%# link_to 'Sign In', new_session_path %></li> -->
+              <!-- <li><%# link_to "Sign in with Twitter", sign_in_with_twitter_path %></li> -->
             <% end %>
             </ul>
           </div>
