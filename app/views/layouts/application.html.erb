@@ -28,13 +28,36 @@
         <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3 col-xl-2" id='navbar'>
           <div class='navbar'>
             <ul>
-              <div><li><%= link_to 'Main Page', root_path %></li><hr /></div>
-              <div><li><%= link_to 'My Budget', budgets_path %></li><hr /></div>
-              <div><li><%= link_to 'Spendings', spending_index_path %></li><hr /></div>
-              <div><li><%= link_to 'Overview',  overview_path %></li><hr /></div>
-              <div><li><%= link_to 'Transactions', transactions_path %></li><hr /></div>
+              <div><li>
+                <span><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                <%= link_to 'Main Page', root_path %>
+              </li><hr/></div>
+
+              <div><li>
+                <span><i class="fa fa-usd" aria-hidden="true"></i></span>
+                <%= link_to 'My Budget', budgets_path %>
+              </li><hr/></div>
+
+              <div><li>
+                <span><i class="fa fa-list" aria-hidden="true"></i></span>
+                <%= link_to 'Spendings', spending_index_path %>
+              </li><hr/></div>
+
+              <div><li>
+                <span><i class="fa fa-book" aria-hidden="true"></i></span>
+                <%= link_to 'Overview',  overview_path %>
+              </li><hr/></div>
+
+              <div><li>
+                <span><i class="fa fa-exchange" aria-hidden="true"></i></span>
+                <%= link_to 'Transactions', transactions_path %>
+              </li><hr/></div>
+
               <% if current_user.present? %>
-                <div><li><%= link_to 'Settings', edit_user_path(current_user) %></li><hr /></div>
+                <div><li>
+                  <span><i class="fa fa-cog" aria-hidden="true"></i></span>
+                  <%= link_to 'Settings', edit_user_path(current_user) %>
+                </li><hr /></div>
               <% end %>
             </ul>
           </div>
