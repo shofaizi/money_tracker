@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root 'home#index'
   post 'contact_submit' => 'users#contact_submit'
 
+  get "/auth/twitter", as: :sign_in_with_twitter
+  get "/auth/twitter/callback" => "callbacks#twitter"
+
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
