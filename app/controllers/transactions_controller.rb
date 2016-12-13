@@ -116,8 +116,6 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: "Transaction deleted" }
       format.json { head :no_content}
-    # flash[:notice]= 'Transaction deleted'
-    # redirect_to transactions_path
     end
   end
 
