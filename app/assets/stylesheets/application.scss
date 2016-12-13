@@ -6,59 +6,48 @@
 
 #navbar {
   overflow-y: auto;
+  background-color: #e6e8eb;
+  background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
+  height: 100vh;
 }
 .navbar > ul {
   padding-top: 200px;
   padding-left: 0;
 }
-
 .navbar li  {
-    display: block;
-    // border-bottom: solid 1px black;
+  display: block;
 }
 .navbar li a {
   text-decoration: none;
   color: white;
   font-size: 1.5rem;
   margin-left: 20px;
+  text-shadow: -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
 }
-
 .navbar li a:hover {
     text-decoration: none;
     color: #fff;
     background: rgba(200,210,201,0.2);
 }
-
 #status {
   float: right;
   margin-top: 1em;
 }
-
 #contents {
   clear: left;
-  padding-top: 12.75rem;
+  padding-top: 1.5rem;
   padding-left: 100px;
-  // margin-top: 5em;
 }
- #navbar{
-   height: 100vh;
-  //  background-color: #F9F9F9;
-   background-color: #C2EABD;
- }
-
- #container{
-   overflow-y: auto;
-   height: 100vh;
- }
-// .navbar {
-//     position: absolute;
-//     top: 0;
-//     width: 250px;
-//     margin: 0;
-//     padding: 0;
-//     list-style: none;
-// }
-
+#contents h1{
+  text-align: center;
+}
+#container{
+  overflow-y: auto;
+  height: 100vh;
+}
 .connect-twitter{
   margin-top: 1rem;
   background-color: #1b95e0;
@@ -66,7 +55,6 @@
   border-radius: 10px;
   padding-left: 3rem;
 }
-
 .connect-twitter a {
   color:white;
   padding-right: auto;
@@ -113,8 +101,15 @@
 .signup-label{
   margin: 0;
 }
-
 .already-user{
   font-weight: bold;
   margin-top: 1rem;
+}
+img{
+  width:100%;
+  margin-left: -15px;
+  top:0;
+  object-fit: cover;
+  position: absolute;
+  height:100vh;
 }

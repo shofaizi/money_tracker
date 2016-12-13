@@ -1,7 +1,7 @@
 <h1>Welcome to <span><em>BudgetBuddy</em></span></h1>
 
 <div class='buttons'>
-  <div class='button' style="">
+  <div class='button'>
     <%= button_to "+", new_credit_path, class:'btn btn-outline-success', method: :get %>
   </div>
   <div class='button'>
@@ -10,7 +10,7 @@
 </div>
 
 <div>
-  <p class="navbar-text">Hello <%= current_user.first_name.capitalize %></p>
+  <p class="navbar-text">Hello <strong><em><%= current_user.first_name.capitalize %></em></strong></p>
 </div>
 <div>
   <canvas id="barchart"></canvas>
