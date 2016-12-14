@@ -9,7 +9,7 @@
   <div>
     <h2><%= s.description.capitalize %>, $<%= s.amount_cents.to_f/100 %><h2>
       <button type="spending">Complete this Spending</button>
-      <button type="delete"><%= link_to 'Delete', transaction_path(s),
+      <button type="delete"><%= link_to 'Remove', transaction_path(s),
                                                   method: :delete,
                                                   data: {confirm: "Are you sure" } %>
       </button>
