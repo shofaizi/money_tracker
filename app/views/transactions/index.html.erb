@@ -13,7 +13,7 @@
 
   <tbody>
     <% @transactions.order("transaction_date ASC").each do |t| %>
-      <tr>
+      <tr data-id='transaction-<%= t.id %>'>
         <td><%= t.transaction_date %></td>
         <td><%= t.transaction_type %></td>
         <td>$<%= t.amount_cents.to_f/ 100 %></td>
@@ -26,7 +26,7 @@
             <%= t.budgets.map(&:name).join(",") %>
           <% end %>
         </td>
-        <td><%= link_to '', t, class: "fa fa-trash-o trash", 'aria-hidden': 'true', method: :delete %></td>
+        <td><%= link_to '', t, class: "fa fa-trash-o trash", 'data-id': 'transaction-' + t.id.to_s, 'aria-hidden': 'true', method: :delete, remote: true %></td>
       </tr>
     <% end %>
   </tbody>
