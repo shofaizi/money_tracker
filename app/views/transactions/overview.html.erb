@@ -1,12 +1,10 @@
 <div><% @transactions %></div>
 
-<!-- <i class="fa fa-arrow-circle-left-2x" aria-hidden="true"></i> -->
-<span class='button-left'><%= fa_icon "arrow-circle-left 2x" %></span>
-  <span class='date-header'>
-    <span id='begin'><%= @date_beginning %></span>
-    - <span id='end'><%= @date_end %></span>
-    </span>
-<span class='button-right'><%= fa_icon "arrow-circle-right 2x" %></span>
+<%=link_to fa_icon("arrow-circle-left 2x"), '#', class: 'button-left', data: {date: @date_beginning} %>
+<span class='date-label-left'><%= @date_beginning %></span>
+-
+<span class='date-label-right'><%= @date_end %></span>
+<%=link_to fa_icon("arrow-circle-right 2x"), '#', class: 'button-right', data: { date: @date_end } %>
 
 <div>
   <h5>Income</h5>

@@ -22,5 +22,4 @@ class Budget < ApplicationRecord
   def current_percentage
     (current_amount_cents.to_f / goal_amount_cents.to_f) * 100
   end
-
 end

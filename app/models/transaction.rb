@@ -1,4 +1,7 @@
 class Transaction < ApplicationRecord
+  attr_accessor :amount
+  before_validation :convert_amount_cents
+
   belongs_to :user
   has_and_belongs_to_many :budgets
 
@@ -20,5 +23,11 @@ class Transaction < ApplicationRecord
     sum_of_credit_txns = credit_txns.map(&:amount_cents).reduce(&:+) || 0
     sum_of_debit_txns  = debit_txns.map(&:amount_cents).reduce(&:+)  || 0
     actual             = (sum_of_credit_txns - sum_of_debit_txns)/100
+  end
+
+  private
+
+  def convert_amount_cents
+    self.amount_cents = (amount.to_f * 100).to_i
   end
 end

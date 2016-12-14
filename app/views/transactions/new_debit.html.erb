@@ -4,7 +4,7 @@
   <%= s.input :transaction_type, label: "Category", collection: ["General","Groceries", "Household", "Transportation",
                                                                   "Restaurant", "Drinks", "Entertainment", "Clothing"],
                                                                 selected: "General", as: :select%>
-  <%= s.input :amount_cents, placeholder: "$0.00" %>
+  <%= s.input :amount, placeholder: "$0.00" %>
   <%= s.input :description, placeholder: "Note" %>
   <%= s.input :transaction_date %>
   <%= s.association :budgets, collection: current_user.budgets, as: :check_boxes %>

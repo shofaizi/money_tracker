@@ -25,37 +25,37 @@
     <% end %>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3 col-xl-2" id='navbar'>
+        <div class="col-md-3 col-sm-4 col-xs-6 col-lg-3 col-xl-3" id='navbar'>
           <div class='navbar'>
             <ul>
               <div><li>
-                <span><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                <span><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i></span>
                 <%= link_to 'Main Page', root_path %>
               </li><hr/></div>
 
               <div><li>
-                <span><i class="fa fa-usd" aria-hidden="true"></i></span>
+                <span><i class="fa fa-usd fa-2x" aria-hidden="true"></i></span>
                 <%= link_to 'My Budget', budgets_path %>
               </li><hr/></div>
 
               <div><li>
-                <span><i class="fa fa-list" aria-hidden="true"></i></span>
+                <span><i class="fa fa-list fa-2x" aria-hidden="true"></i></span>
                 <%= link_to 'Spendings', spending_index_path %>
               </li><hr/></div>
 
               <div><li>
-                <span><i class="fa fa-book" aria-hidden="true"></i></span>
+                <span><i class="fa fa-book fa-2x" aria-hidden="true"></i></span>
                 <%= link_to 'Overview',  overview_path %>
               </li><hr/></div>
 
               <div><li>
-                <span><i class="fa fa-exchange" aria-hidden="true"></i></span>
+                <span><i class="fa fa-exchange fa-2x" aria-hidden="true"></i></span>
                 <%= link_to 'Transactions', transactions_path %>
               </li><hr/></div>
 
               <% if current_user.present? %>
                 <div><li>
-                  <span><i class="fa fa-cog" aria-hidden="true"></i></span>
+                  <span><i class="fa fa-cog fa-2x" aria-hidden="true"></i></span>
                   <%= link_to 'Settings', edit_user_path(current_user) %>
                 </li><hr /></div>
               <% end %>
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class="col-md-9 col-xl-10 col-sm-8 col-lg-9" id="container">
+        <div class="col-md-9 col-xl-9 col-sm-8 col-lg-9" id="container">
           <div>
             <% if notice || alert %>
               <div class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable" role="alert">

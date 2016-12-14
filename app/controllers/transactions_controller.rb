@@ -13,9 +13,8 @@ class TransactionsController < ApplicationController
 
   def overview_ajax
     expenses = 0
-    income   = 0
-
-    date     =
+    income = 0
+    date =
       if params[:begin].present?
         params[:begin]
       elsif params[:end].present?
@@ -31,6 +30,7 @@ class TransactionsController < ApplicationController
       date_beginning = DateTime.parse(date).to_date
       date_start = date_beginning.strftime('%Y-%-m-%-d')
       date_end   = (date_beginning + 30).strftime('%Y-%-m-%-d')
+      p date_end
     end
 
     # date_end = date_beginning.strftime('%Y-%-m-%-d')
@@ -119,7 +119,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount_cents,
+    params.require(:transaction).permit(:amount,
                                         :transaction_type,
                                         :transaction_date,
                                         :description,
