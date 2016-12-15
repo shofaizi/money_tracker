@@ -11,6 +11,12 @@ class CallbacksController < ApplicationController
   end
   # step 3. sign in the user
   session[:user_id] = user.id
-  redirect_to root_path, notice: "Thanks for signing up with Twitter!"
+  redirect_to root_path, notice: "Thanks for signing in with Twitter!"
+  end
+
+  def facebook
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    redirect_to root_url, notice: "Thanks for signing in with Facebook"
   end
 end
