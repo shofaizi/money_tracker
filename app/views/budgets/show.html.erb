@@ -1,32 +1,39 @@
-<h2>
-  You are currently at <%= number_to_percentage(@budget.current_percentage, precision: 2) %> of your <%= @budget.period %> budget
-</h2>
+<% if @budget.current_percentage > 50.00 %>
+    <h2>
+      You are currently at <span style="color:red"><%= number_to_percentage(@budget.current_percentage, precision: 2) %></span> of your <%= @budget.period %> budget
+    </h2>
+<% else %>
+    <h2>
+      You are currently at <span style="color:green"><%= number_to_percentage(@budget.current_percentage, precision: 2) %></span> of your <%= @budget.period %> budget
+    </h2>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @budget.name %>
-</p>
+<div id='budget-show-page'>
+  <p>
+    <strong>Name:</strong>
+    <%= @budget.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @budget.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @budget.description %>
+  </p>
 
-<p>
-  <strong>Period:</strong>
-  <%= @budget.period %>
-</p>
+  <p>
+    <strong>Period:</strong>
+    <%= @budget.period %>
+  </p>
 
-<p>
-  <strong>Goal Amount:</strong>
-  <%= humanized_money_with_symbol(@budget.goal_amount) %>
-</p>
+  <p>
+    <strong>Goal Amount:</strong>
+    <%= humanized_money_with_symbol(@budget.goal_amount) %>
+  </p>
 
-<p>
-  <strong>Current Amount:</strong>
-  $<%= @budget.current_amount_cents.to_f/ 100 %>
-</p>
-
+  <p>
+    <strong>Current Amount:</strong>
+    $<%= @budget.current_amount_cents.to_f/ 100 %>
+  </p>
+</div>
 
 
 

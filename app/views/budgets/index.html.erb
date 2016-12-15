@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <div id='header'>
   <h1>Budgets</h1>
 </div>
 
 <br>
-<%= link_to 'New Budget', new_budget_path %>
+<div><%= link_to 'New Budget', new_budget_path, class:'btn btn-success'%></div>
 
-<table class='table'>
+<table class='table table-hover'>
   <thead>
     <tr>
       <th>Name</th>
@@ -20,14 +18,15 @@
 
   <tbody>
     <% @budgets.each do |budget| %>
-      <tr>
+      <tr data-id='budget-<%= budget.id %>'>
         <td><%= budget.name %></td>
         <td><%= budget.description %></td>
         <td><%= budget.period %></td>
         <td><%= humanized_money_with_symbol(budget.goal_amount) %></td>
         <td><%= link_to 'Show', budget %></td>
         <td><%= link_to 'Edit', edit_budget_path(budget) %></td>
-        <td><%= link_to 'Destroy', budget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Destroy', budget, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <td><%= link_to '', budget, class: "fa fa-trash-o trash", 'data-id': 'budget-' + budget.id.to_s, 'aria-hidden': 'true', method: :delete, remote: true %></td>
       </tr>
     <% end %>
   </tbody>

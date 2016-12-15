@@ -1,12 +1,16 @@
 <h1>All Spendings</h1>
-<span>
-  <button type="button">Past</button>
-  <button type="button">Ongoing</button>
-  <button type="button">Future</button>
-</span>
+<div id=create-button><%= button_to 'Create a spending', new_debit_path, class:'btn btn-success' %></div>
+<div id='spending-buttons'>
+  <span>
+    <button type="button" class="btn btn-primary">Past</button>
+    <button type="button" class="btn btn-primary">Ongoing</button>
+    <button type="button" class="btn btn-primary">Future</button>
+  </span>
+</div>
+
 
 <% @transaction.each do |s| %>
-  <div>
+  <div id='spending-table'>
     <h2><%= s.description.capitalize %>, $<%= s.amount_cents.to_f/100 %><h2>
       <button type="spending">Complete this Spending</button>
       <button type="delete"><%= link_to 'Remove', transaction_path(s),
@@ -16,5 +20,3 @@
   </div>
   <hr>
 <% end %>
-
-<button type="new"><%= link_to 'Create a spending', new_debit_path %></button>

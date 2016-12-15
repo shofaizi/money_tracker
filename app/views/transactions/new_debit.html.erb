@@ -8,6 +8,6 @@
   <%= s.input :description, placeholder: "Note" %>
   <%= s.input :transaction_date %>
   <%= s.association :budgets, collection: current_user.budgets, as: :check_boxes %>
-  <%= s.submit input_html: {class: 'btn btn-primary'} %>
+  <%= s.submit input_html: {class: 'btn btn-success'} %>
   <% end %>
 </div>

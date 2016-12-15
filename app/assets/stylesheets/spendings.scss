@@ -1,3 +1,17 @@
 // Place all the styles related to the spendings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#spending-buttons{
+  display: inline-block;
+  margin-top: 2rem;
+  padding-left: 230px;
+}
+
+#spending-table{
+  margin-top: 4rem;
+}
+
+#create-button{
+  display: inline-block;
+  float: left;
+}
