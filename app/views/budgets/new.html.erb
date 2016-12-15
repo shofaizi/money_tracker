@@ -1,4 +1,6 @@
-<div id='footer'><%= link_to '', budgets_path, class:'fa fa-angle-double-left fa-3x' %></div>
-<h1>New Budget</h1>
+<div id='footer'>
+  <span><%= link_to '', budgets_path, class:'fa fa-angle-double-left fa-3x' %></span>
+  <h1 style="margin-left: 22rem">New Budget</h1>
+</div>
 
 <%= render 'form', budget: @budget %>
