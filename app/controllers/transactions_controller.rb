@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @transactions = Transaction.where(user: current_user)
+    @transactions = Transaction.where(user: current_user).order(transaction_date: :desc)
   end
 
   def overview

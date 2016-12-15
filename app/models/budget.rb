@@ -6,11 +6,11 @@ class Budget < ApplicationRecord
 
   def current_amount_cents
     case period
-    when "monthly" || 'Monthly'
+    when /(m|M)onthly/
       budget_transactions.where(transaction_date: Date.today.beginning_of_month..Date.today.end_of_month).reduce(0) {
         |sum, t| sum += t.amount_cents
       }
-    when "weekly" || "Weekly"
+    when /(w|W)eekly/
       budget_transactions.where(transaction_date: Date.today.beginning_of_week..Date.today.end_of_week).reduce(0) {
         |sum, t| sum += t.amount_cents
       }

@@ -10,17 +10,23 @@
 
 #navbar {
   overflow-y: auto;
-  background-color: #e6e8eb;
-  background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
+  background-color: #000e33;
+  background-image: url("https://www.transparenttextures.com/patterns/binding-dark.png");
   height: 100vh;
 }
 .navbar > ul {
   padding-top: 200px;
   padding-left: 0;
+  color: white;
 }
 .navbar li  {
   display: block;
   text-decoration: none;
+}
+#bb-logo{
+  width: 150px;
+  height: auto;
+  margin: 30px 20px 20px 20px;
 }
 .navbar li a {
   text-decoration: none;
@@ -121,4 +127,14 @@ img{
   object-fit: cover;
   position: absolute;
   height:100vh;
+}
+a:hover{
+  text-decoration: none;
+  transform: scale(1.1);
+}
+a{
+  transition: all .2s ease-in-out;
+}
+#money-icon{
+  margin-right: 0.9rem;
 }
