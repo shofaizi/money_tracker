@@ -1,0 +1,48 @@
+<script>
+  $(document).ready(function(){
+    //Set display size based on window size.
+    // var rect = document.body.getBoundingClientRect();
+    // screenWidth = (rect.width < 960) ? Math.round(rect.width*.95) : Math.round((rect.width - 210) *.95)
+    // d3.select("#currentDisplay").attr("value", screenWidth + ",600").attr("selected", true).text(screenWidth + "px - 600px");
+
+    var viz_container;
+    var viz1;
+    var div1;
+    var theme1;
+
+    viz_container = d3.selectAll("#viz_container")
+    div1 = d3.select("#budget_percentage");
+    viz1 = vizuly.component.radial_progress(document.getElementById("budget_percentage"));
+    viz1.data(<%= percentage %>)                       // Current value
+        .height(600)                    // Height of component - radius is calculated automatically for us
+        .min(0)                         // min value
+        .max(100)                       // max value
+        .capRadius(1)                   // Sets the curvature of the ends of the arc.
+        .on("tween",onTween)            // On the arc animation we create a callback to update the label
+        .label(function (d,i) { return d3.format(".2f")(d) + "%"; });
+
+    theme1 = vizuly.theme.radial_progress(viz1).skin(vizuly.skin.RADIAL_PROGRESS_FIRE);
+
+    var divWidth = 300;
+
+    viz_container.transition()              // Use D3 to start a transition
+        .duration(300)                      // Set the transition to last 300ms
+        .style('width', 300 + 'px')        // Resize the width of the container.
+        .style('height', 300 + 'px');      // Resize the height of the container.
+
+    div1.style("width", divWidth + 'px')              //Update the div container
+        .style("margin-left", (100 *.25) + "px");
+
+    viz1.width(divWidth)                         //Update the gauge width, height, and radius
+        .height(divWidth)
+        .radius(divWidth/2)
+        .update();
+  });
+
+  function onTween(viz,i) {
+      viz.selection().selectAll(".vz-radial_progress-label")
+          .text(viz.label()(viz.data() * i));
+  }
+
+
+</script>

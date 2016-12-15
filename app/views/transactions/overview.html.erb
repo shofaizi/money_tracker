@@ -1,29 +1,23 @@
-<div><% @transactions %></div>
+<h1>Overview</h1>
+<!-- <div><% @transactions %></div> -->
 
-<%=link_to fa_icon("arrow-circle-left 2x"), '#', class: 'button-left', data: {date: @date_beginning} %>
-<span class='date-label-left'><%= @date_beginning %></span>
--
-<span class='date-label-right'><%= @date_end %></span>
-<%=link_to fa_icon("arrow-circle-right 2x"), '#', class: 'button-right', data: { date: @date_end } %>
+<div id='date-selector'>
+  <%=link_to fa_icon("arrow-circle-left 2x"), '#', class: 'button-left', data: {date: @date_beginning} %>
+  <span class='date-label-left'><%= @date_beginning %></span>
+  -
+  <span class='date-label-right'><%= @date_end %></span>
+  <%=link_to fa_icon("arrow-circle-right 2x"), '#', class: 'button-right', data: { date: @date_end } %>
+</div>
 
-<div>
+<div id='main-content'>
   <h5>Income</h5>
   $<span id="income"></span>
-</div>
-<hr>
+  <hr>
 
-<div>
   <h5>Expenses</h5>
   $<span id='expenses'></span>
-</div>
+  <hr>
 
-<hr>
-</hr>
-
-<div>
   <h5>Budget left</h5>
   $<span id='budget-left'></span>
-</div>
-<div>
-
 </div>

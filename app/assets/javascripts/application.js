@@ -14,4 +14,7 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require Chart
+//= require d3.min
+//= require vizuly_core.min
+//= require vizuly_radialprogress.min
 //= require_tree .

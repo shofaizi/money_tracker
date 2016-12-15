@@ -3,7 +3,10 @@
 @import 'sessions';
 @import "budgets";
 @import "spendings";
+@import 'transactions';
 @import "font-awesome";
+@import "vizuly";
+@import "vizuly_radial_progress";
 
 #navbar {
   overflow-y: auto;
@@ -17,6 +20,7 @@
 }
 .navbar li  {
   display: block;
+  text-decoration: none;
 }
 .navbar li a {
   text-decoration: none;
@@ -32,6 +36,7 @@
     text-decoration: none;
     color: #fff;
     background: rgba(200,210,201,0.2);
+    // border-left: 5px blue;
 }
 #status {
   float: right;
@@ -39,6 +44,7 @@
 }
 #contents {
   clear: left;
+  padding-top: 4rem;
   padding-top: 12.5rem;
   padding-left: 100px;
 }
@@ -60,6 +66,9 @@
   color: white;
   padding-right: auto;
 }
+// .toggle-form:first-child{
+//   padding-left: 2rem;
+// }
 .texting{
   font-weight: bold;
   display: inline-block;

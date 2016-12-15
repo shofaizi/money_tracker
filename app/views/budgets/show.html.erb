@@ -1,4 +1,4 @@
-<% if @budget.current_percentage > 50.00 %>
+<!-- <% if @budget.current_percentage > 50.00 %>
     <h2>
       You are currently at <span style="color:red"><%= number_to_percentage(@budget.current_percentage, precision: 2) %></span> of your <%= @budget.period %> budget
     </h2>
@@ -6,36 +6,46 @@
     <h2>
       You are currently at <span style="color:green"><%= number_to_percentage(@budget.current_percentage, precision: 2) %></span> of your <%= @budget.period %> budget
     </h2>
-<% end %>
+<% end %> -->
+<div class='outline-area'>
+  <h1>Budget: <%= @budget.name %></h1>
+  <div id='budget-show-page'>
+    <p>
+      <strong>Name:</strong>
+      <%= @budget.name %>
+    </p>
 
-<div id='budget-show-page'>
-  <p>
-    <strong>Name:</strong>
-    <%= @budget.name %>
-  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @budget.description %>
+    </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @budget.description %>
-  </p>
+    <p>
+      <strong>Period:</strong>
+      <%= @budget.period %>
+    </p>
 
-  <p>
-    <strong>Period:</strong>
-    <%= @budget.period %>
-  </p>
+    <p>
+      <strong>Goal Amount:</strong>
+      <%= humanized_money_with_symbol(@budget.goal_amount) %>
+    </p
 
-  <p>
-    <strong>Goal Amount:</strong>
-    <%= humanized_money_with_symbol(@budget.goal_amount) %>
-  </p>
+    <p>
+      <strong>Current Amount:</strong>
+      $<%= @budget.current_amount_cents.to_f/ 100 %>
+    </p>
+  </div>
 
-  <p>
-    <strong>Current Amount:</strong>
-    $<%= @budget.current_amount_cents.to_f/ 100 %>
-  </p>
+  <div class='web-content'>
+    <div id="viz_container" class="z-depth-3"
+      style="margin:0px auto; width:100%; height:600px; padding-top:25px;">
+      <div id="budget_percentage" class="radial_container"></div>
+    </div>
+  </div>
+  <%= render "budgets/vizuly", percentage: @budget.current_percentage %>
+
+  <div id='budget-options'>
+    <span><%= link_to '', budgets_path, class:"fa fa-angle-double-left fa-2x"  %></span>
+    <span><%= link_to '', edit_budget_path(@budget), class:'fa fa-pencil-square-o fa-2x' %></span>
+  </div>
 </div>
-
-
-
-<%= link_to 'Edit', edit_budget_path(@budget) %> |
-<%= link_to 'Back', budgets_path %>
