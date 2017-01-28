@@ -17,7 +17,7 @@ class User < ApplicationRecord
                                     unless: :from_oauth?
 
   validates :email, presence: true, format:   /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
-                                    format:   /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
+                                    # format:   /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
                                     unless:   :from_oauth?
 
   def full_name

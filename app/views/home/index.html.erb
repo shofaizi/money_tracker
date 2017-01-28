@@ -1,25 +1,25 @@
 <div id='home-contents'>
-<h1 id='head'>Welcome to <span><em>BudgetBuddy</em></span></h1>
+  <h1 id='head'>Welcome to BudgetBuddy</h1>
 
-<div class='buttons'>
-  <div class='button'>
-    <%= button_to "+", new_credit_path, class:'btn btn-outline-success', method: :get %>
+  <div class='buttons'>
+    <div class='button' data-toggle="tooltip" data-placement="bottom" title="Credit Transaction">
+      <%= button_to "+", new_credit_path, class:'btn btn-outline-success', method: :get %>
+    </div>
+    <div class='button' data-toggle="tooltip" data-placement="top" title="Debit Transaction">
+      <%= button_to "-", new_debit_path, class:"btn btn-danger", method: :get %>
+    </div>
   </div>
-  <div class='button'>
-    <%= button_to "-", new_debit_path, class:"btn btn-danger", method: :get %>
+
+  <div>
+    <p class="navbar-text">Hello <strong><em><%= current_user.first_name.capitalize %></em></strong></p>
   </div>
-</div>
+  <div>
+    <canvas id="barchart" width='400px' height='200px'></canvas>
+  </div>
 
-<div>
-  <p class="navbar-text">Hello <strong><em><%= current_user.first_name.capitalize %></em></strong></p>
-</div>
-<div>
-  <canvas id="barchart" width='400px' height='200px'></canvas>
-</div>
-
-<script>
-  $(document).ready(function(){
-    $.get("<%= balances_path %>")
-  })
-</script>
+  <script>
+    $(document).ready(function(){
+      $.get("<%= balances_path %>")
+    })
+  </script>
 </div>
