@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoneyProject</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application'%>
+    <%= javascript_include_tag 'application'%>
+  </head>
+
+  <body>
+    <% if user_signed_in? == false %>
+      <div id="login-display">
+        <div class='login-content'>
+          <div class='login-form'>
+            <div id='signin-form'>
+              <%= render 'sessions/new' %>
+            </div>
+            <div id='signup-form'>
+              <%= render 'users/new' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-lg-3 col-xl-3" id='navbar'>
+          <!-- <div class='logo'>
+            <h3 style='font-family:GoodDog Plain'>Bb</h3>
+            <div> -->
+          <div class='hidden-xs navbar'>
+            <ul>
+              <li><%= image_tag('bb.png', id:'bb-logo') %></li>
+              <div><li>
+                <span><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i></span>
+                <%= link_to 'Main Page', root_path %>
+              </li><hr/></div>
+
+              <div><li>
+                <span id='money-icon'><i class="fa fa-usd fa-2x" aria-hidden="true"></i></span>
+                <%= link_to 'My Budget', budgets_path %>
+              </li><hr/></div>
+
+              <!-- <div><li>
+                <span><i class="fa fa-list fa-2x" aria-hidden="true"></i></span>
+                <%= link_to 'Spendings', spending_index_path %>
+              </li><hr/></div> -->
+
+              <div><li>
+                <span><i class="fa fa-book fa-2x" aria-hidden="true"></i></span>
+                <%= link_to 'Overview',  overview_path %>
+              </li><hr/></div>
+
+              <div><li>
+                <span><i class="fa fa-exchange fa-2x" aria-hidden="true"></i></span>
+                <%= link_to 'Transactions', transactions_path %>
+              </li><hr/></div>
+
+              <% if current_user.present? %>
+                <div><li>
+                  <span><i class="fa fa-cog fa-2x" aria-hidden="true"></i></span>
+                  <%= link_to 'Settings', edit_user_path(current_user) %>
+                </li><hr /></div>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-xl-9 col-sm-8 col-lg-9" id="container">
+          <div>
+            <% if notice || alert %>
+              <div class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable" role="alert">
+                <%= notice || alert %>
+              </div>
+            <% end %>
+          </div>
+
+          <div>
+            <ul id="status" class='nav navbar-nav'>
+            <% if user_signed_in? %>
+              <li><%= button_to 'Sign out', sessions_path, method: :delete, class: 'btn btn-default navbar-btn' %></li>
+            <% end %>
+            </ul>
+          </div>
+
+          <div id="contents">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
