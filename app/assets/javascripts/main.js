@@ -1,6 +1,6 @@
 var balanceChart = function(name, data, labels) {
   var chart = document.getElementById("barchart").getContext('2d');
-  let barchart = new Chart(chart, {
+  var barchart = new Chart(chart, {
     type: 'bar',
     data: {
       labels: labels,
