@@ -19,6 +19,7 @@ gem 'momentjs-rails', '~> 2.11'
 gem 'tachyons-rails'
 gem 'twitter'
 gem 'omniauth-twitter'
+gem 'rails_12factor'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
