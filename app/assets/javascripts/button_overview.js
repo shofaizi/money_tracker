@@ -2,7 +2,7 @@ $(document).ready(function(){
   var response_data;
 
   var getInitialData = function() {
-    $.get('http://powerful-shelf-64251.herokuapp.com/overview/ajax?begin=' + new Date(), function(data){
+    $.get('https://powerful-shelf-64251.herokuapp.com/overview/ajax?begin=' + new Date(), function(data){
       console.log("Data from home:", data);
       response_data = data
       $("#income").html(data.income);

@@ -16438,11 +16438,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -16470,12 +16470,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -26609,7 +26609,7 @@ $(document).ready(function(){
     console.log('Begin data:', begin_date)
 
     var direction = /right/.test(this.className) ? 'end' : 'begin'
-    var requestUrl = 'http://localhost:3000/overview/ajax?' + direction + '=' + begin_date
+    var requestUrl = 'https://powerful-shelf-64251.herokuapp.com/overview/ajax?' + direction + '=' + begin_date
 
     console.log('requestUrl:', requestUrl)
     $.get(requestUrl, function(data){
