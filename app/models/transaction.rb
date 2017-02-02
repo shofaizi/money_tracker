@@ -9,7 +9,6 @@ class Transaction < ApplicationRecord
   validates :amount_cents, presence: true, numericality: true
   validates :transaction_date, presence: true
   validates :description, presence: true, length: { minimum: 5 }
-  # validates :location, presence: true, length: { minimum: 5 }
 
   def set_spending_type
     if self.is_spending

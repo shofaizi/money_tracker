@@ -33,7 +33,6 @@ class TransactionsController < ApplicationController
       p date_end
     end
 
-    # date_end = date_beginning.strftime('%Y-%-m-%-d')
     @transactions = Transaction.all.where(user: current_user).where(transaction_date: date_beginning-30..date_beginning)
     @transactions.each do |txn|
       if txn.is_spending?
@@ -78,8 +77,6 @@ class TransactionsController < ApplicationController
       else
         format.html { render(@transaction.is_spending ? :new_debit : :new_credit) }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
-        # error_path = @transaction.is_spending ? :new_debit : :new_credit
-        # render error_path
       end
     end
   end

@@ -1,7 +1,3 @@
-<%# if @transaction.errors.full_messages.exist?%>
-  <%# @transaction.errors.full_messages %>
-<%# end %>
-
 <div class='new-credit'>
   <%= simple_form_for @transaction do |s| %>
   <%= s.input :is_spending, input_html: { checked: false, value: false}, as: :hidden %>

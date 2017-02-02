@@ -25,7 +25,6 @@
         <td><%= humanized_money_with_symbol(budget.goal_amount) %></td>
         <td><%= link_to '', budget, class:"fa fa-circle-o fa-2x"  %></td>
         <td><%= link_to '', edit_budget_path(budget), class:'fa fa-pencil-square-o fa-2x' %></td>
-        <!-- <td><%= link_to 'Destroy', budget, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         <td><%= link_to '', budget, class: "fa fa-trash-o trash fa-2x", 'data-id': 'budget-' + budget.id.to_s, 'aria-hidden': 'true', method: :delete, remote: true %></td>
       </tr>
     <% end %>
