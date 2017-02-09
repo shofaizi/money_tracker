@@ -4,7 +4,6 @@ $(document).ready(function(){
   var getInitialData = function() {
     $.get('/overview/ajax?begin=' + new Date(), function(data){
       // for local use https:localhost:3000/
-      console.log("Data from home:", data);
       response_data = data
       $("#income").html(data.income);
       $("#expenses").html(data.expenses);
